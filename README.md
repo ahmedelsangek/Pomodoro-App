@@ -6,4 +6,4 @@
 * Customize the appearance of the app with the ability to set preferences for colors and fonts
 * Added Sound When Time finished and when click on any button
 * All changes will save in your browser at LocalStorage
-* Demo => https://ahmedelsangek.github.io/Pomodoro-App/
+* Demo => 
