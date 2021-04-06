@@ -19,7 +19,8 @@ let pomodoroCounterElement = document.querySelector(".pomodoro-count .count");
 //Start Pomodoro
 document.querySelector(".start").onclick = function () {
     document.querySelector(".pomodoro-control .pomodoro").click();
-    this.style.display = "none"
+    this.style.display = "none";
+    document.querySelector(".click").play();
 }
 
 pomodoroControlBtns.forEach((button) => {
@@ -34,6 +35,7 @@ pomodoroControlBtns.forEach((button) => {
         section3.classList.add("hide");
         pauseButton.style.display = "block";
         document.querySelector(".start").style.display = "none";
+        document.querySelector(".click").play();
     });
 });
 
@@ -86,6 +88,7 @@ if (localStorage.length > 0) {
 //Open Setting Box
 openSetting.addEventListener("click", () => {
     showSection("none","block", "none");
+    document.querySelector(".click").play();
 });
 
 //Close Setting Box
@@ -111,6 +114,7 @@ apllyButton.addEventListener("click", () => {
     
     setTimeToButtons();
     showSection("flex","none", "block");
+    document.querySelector(".click").play();
 });
 
 //Handle Active Class in Font at Setting Box
@@ -122,6 +126,7 @@ fontSettingSpans.forEach((element) => {
         element.classList.add("active");
         document.documentElement.style.setProperty("--font-family-1", `${e.target.dataset.font}`);
         localStorage.setItem("font_option", element.dataset.font);
+        document.querySelector(".click").play();
     });
 });
 
@@ -134,6 +139,7 @@ colorSettingSpans.forEach((element) => {
         element.innerHTML = '<img src="./img/ckeck.svg" alt="check">';
         document.documentElement.style.setProperty("--background-alarm-1", `${e.target.dataset.color}`);
         localStorage.setItem("color_option", element.dataset.color);
+        document.querySelector(".click").play();
     });
 });
 
@@ -207,6 +213,7 @@ function pomodoroCounter(duration) {
             pauseButton.style.display = "none";
             //Reset decrease value
             decrease = 100;
+            document.querySelector(".time-finished").play();
         }
         //Decrease the circle during tne count down
         decrease -= circleDecrease;
